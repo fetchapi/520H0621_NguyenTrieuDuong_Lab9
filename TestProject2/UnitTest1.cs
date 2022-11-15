@@ -1,4 +1,6 @@
 using StudentServiceLib;
+using System.ComponentModel;
+
 namespace TestProject2
 {
     [TestClass]
@@ -58,11 +60,12 @@ namespace TestProject2
         }
 
         [TestMethod]
-        [DataRow(8, 'A')]
-        [DataRow(7, 'B')]
-        [DataRow(5, 'C')]
-        [DataRow(3.5, 'D')]
-        [DataRow(3, 'E')]
+        [DataRow(10, 'A', DisplayName = "score 10 is A")]
+        [DataRow(8, 'A', DisplayName = "score 8 is A")]
+        [DataRow(7, 'B', DisplayName = "score 7 is B")]
+        [DataRow(5, 'C', DisplayName = "score 5 is C")]
+        [DataRow(3.5, 'D', DisplayName = "score 3.5 is D")]
+        [DataRow(3, 'E', DisplayName = "score 3 is E")]
         public void testMultipleLetterFromScore(double score, char expected)
         {
             s.Score = score;
