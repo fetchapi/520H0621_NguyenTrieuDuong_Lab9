@@ -4,6 +4,14 @@ namespace TestProject2
     [TestClass]
     public class UnitTest1
     {
+        private Student s;
+
+        [TestInitialize]
+        public void init()
+        {
+            s = new Student();
+        }
+
         [TestMethod]
         public void Score8_ShouldReturn_A()
         {
@@ -48,5 +56,20 @@ namespace TestProject2
             var letter = s.getLetterScore();
             Assert.AreEqual('E', letter);
         }
+
+        [TestMethod]
+        [DataRow(8, 'A')]
+        [DataRow(7, 'B')]
+        [DataRow(5, 'C')]
+        [DataRow(3.5, 'D')]
+        [DataRow(3, 'E')]
+        public void testMultipleLetterFromScore(double score, char expected)
+        {
+            s.Score = score;
+            var letter = s.getLetterScore();
+            Assert.AreEqual(letter, expected);
+        }
+
+
     }
 }
